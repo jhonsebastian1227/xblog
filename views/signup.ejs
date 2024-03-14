@@ -1,0 +1,20 @@
+<%- include("partials/header.ejs") %>
+
+<section class="container">
+    <form action="/check_signup" method="POST" class="container-form margin-form">
+        <div class="items">
+            <h2>Sign up</h2>
+            <h3>Create your account</h3>
+        </div>
+        <input type="text" id="user" name="user" placeholder="User" required class="input-item textind">
+        <input type="text" id="email" name="email" placeholder="Email" required class="input-item textind">
+        <input type="text" id="password" name="password" placeholder="Password" required class="input-item textind">
+        <input type="text" id="cPassword" name="cPassword" placeholder="Confirm Password" required class="input-item textind">
+        <input type="submit" value="Sign up" id="signup" class="btn-items">
+        <% if (locals.message) { %>
+            <h4> <%= locals.message %> </h4>
+        <% } %>
+    </form>
+</section>
+
+<%- include("partials/footer.ejs") %>

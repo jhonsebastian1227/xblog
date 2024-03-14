@@ -1,0 +1,40 @@
+<%- include("partials/header.ejs") %>
+
+<section class="container">
+    <div>
+        <% if (locals.message) { %>
+            <h1><%= locals.user %></h1>
+
+            <form action="/check_post" method="POST" class="container-form margin-form-index">
+                <textarea id="comments" name="comments" placeholder="Write your post here" cols="50" rows="6" maxlength="280"></textarea>
+                <input type="submit" value="Post" class="btn-items">
+            </form>
+            <% if (locals.message) { %>
+                <h4> <%= locals.messageH4 %> </h4>
+            <% } %>
+        <% } else { %>
+            <h1>Welcome To Xblog</h1>
+        <% } %>
+    </div>
+    
+    <div>
+        <% if (locals.items) { %>
+            <ul>
+                <% for (let i = items.length - 1; i > 0; i--) { %>
+                    <div class="align-li">
+                        <li>
+                            <%= items[i] %>
+                        </li>
+                        <form action="/eliminar" method="POST" >
+                            <input type="hidden" name="indice" value="<%= i %>">
+                            <input type="submit" value="X" id="btn-delete">
+                        </form>
+                    </div>
+                    <hr>
+                <% } %>
+            </ul>
+        <% } %>
+    </div>
+</section>
+
+<%- include("partials/footer.ejs") %>

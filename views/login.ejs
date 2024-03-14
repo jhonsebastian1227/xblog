@@ -1,0 +1,18 @@
+<%- include("partials/header.ejs") %>
+
+<section class="container">
+    <form action="/check_login" method="POST" class="container-form margin-form">
+        <div class="items">
+            <h2>Welcome Back</h2>
+            <h3>Enter your credential to login</h3>
+        </div>
+        <input type="text" id="email" name="email" placeholder="Email" required class="input-item textind">
+        <input type="text" id="password" name="password" placeholder="Password" required class="input-item textind">
+        <input type="submit" value="Login" id="login" class="btn-items">
+        <% if (locals.message) { %>
+            <h4> <%= locals.message %> </h4>
+        <% } %>
+    </form>
+</section>
+
+<%- include("partials/footer.ejs") %>
